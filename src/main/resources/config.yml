@@ -1,0 +1,23 @@
+max-critical-hits: 3
+
+# Kritik vuruşları için saniye ayarı
+time-window-seconds: 5
+
+# Maksimum kritik vuruşu aştıktan sonra elytrasını devre dışı bırakmak için saniye
+disable-duration-seconds: 3
+
+# Webhook mesaj
+enable-notifications: true
+
+# wehbook ayar
+enable-discord-webhook: true
+discord-webhook-url: "URL"
+webhook-username: "Elitra sikici"
+webhook-avatar-url: ""
+
+# Oyuncu bildirim ayarları
+enable-player-message: true
+player-notification-message: "&cÇok fazla kritik vuruş yaptıgı icin %saniye% saniye eltira devre dışı bırakıldı"
+
+# discord wehbook mesajı
+notification-message: "Oyuncu %player% elytra ile çok fazla kritik vuruş yaparken yakalandı"

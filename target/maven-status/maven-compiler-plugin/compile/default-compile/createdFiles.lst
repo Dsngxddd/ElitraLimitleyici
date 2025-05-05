@@ -1,0 +1,8 @@
+net\cengiz1\elitraLimitleyici\config\ConfigManager.class
+net\cengiz1\elitraLimitleyici\manager\NotificationManager$1.class
+net\cengiz1\elitraLimitleyici\ElitraLimitleyici.class
+net\cengiz1\elitraLimitleyici\manager\NotificationManager.class
+net\cengiz1\elitraLimitleyici\manager\ElytraManager.class
+net\cengiz1\elitraLimitleyici\manager\ElytraManager$1.class
+net\cengiz1\elitraLimitleyici\hit\CriticalHitTracker.class
+net\cengiz1\elitraLimitleyici\listener\PlayerListener.class

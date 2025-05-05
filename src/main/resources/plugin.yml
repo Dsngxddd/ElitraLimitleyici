@@ -1,0 +1,11 @@
+name: ElitraLimitleyici
+version: '1.0-SNAPSHOT'
+main: net.cengiz1.elitraLimitleyici.ElitraLimitleyici
+api-version: '1.21'
+permissions:
+  elitralimitleyici.bypass:
+    description: Bypass perm
+    default: op
+  elitralimitleyici.notify:
+    description: Duyuru perm
+    default: op
