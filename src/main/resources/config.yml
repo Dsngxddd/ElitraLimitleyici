@@ -1,23 +1,42 @@
+# Maksimum kaç tane kritik vuruş yapılabilecek
 max-critical-hits: 3
-
-# Kritik vuruşları için saniye ayarı
+# Kritik vuruşların izleneceği saniye
 time-window-seconds: 5
-
-# Maksimum kritik vuruşu aştıktan sonra elytrasını devre dışı bırakmak için saniye
+# Elytra'nın devre dışı kalacağı saniye
 disable-duration-seconds: 3
-
-# Webhook mesaj
+# Tüm bildirimleri aç/kapa
 enable-notifications: true
-
-# wehbook ayar
+# Discord webhook bildirimlerini aç/kapa
 enable-discord-webhook: true
-discord-webhook-url: "URL"
-webhook-username: "Elitra sikici"
-webhook-avatar-url: ""
-
-# Oyuncu bildirim ayarları
+# Oyuncu mesajlarını aç/kapa
 enable-player-message: true
-player-notification-message: "&cÇok fazla kritik vuruş yaptıgı icin %saniye% saniye eltira devre dışı bırakıldı"
+# Discord webhook
+discord-webhook-url: "URL"
+# Discordda gösterilecek kullanıcı adı
+webhook-username: "Elitra sikici"
+# Webhook için avatar URL
+webhook-avatar-url: ""
+# uyarı mesajı
+notification-message: "Oç %player% amını yurdunu siktiğim çok fazla kritik vurdu şerefsiz!"
+# Oyuncuya gönderilecek mesaj
+player-notification-message: "&cAnasını siktiğimin salağı, çok fazla kritik vuruş yaptın! %saniye% saniye kadar uçamican götveren!"
 
-# discord wehbook mesajı
-notification-message: "Oyuncu %player% elytra ile çok fazla kritik vuruş yaparken yakalandı"
+ghost-firework:
+  prevent-ghost-fireworks: true
+  max-warnings: 3
+  # Uyarılar arası bekleme süresi saniye
+  warning-cooldown-ms: 5000
+  # Cezalandırma elytrayı devre dışı bırakma
+  disables-elytra: true
+  # Cezalandırma süresi
+  punishment-duration-ticks: 1200
+  # Yetkililere ve Discorda gönderilecek mesaj
+  notification-message: "Amına koduğumun %player%ı ghost fişek kullanmaya çalıştı pezevenk! (%count%/%max%)"
+  # Oyuncuya uyarı mesajı
+  player-message: "&cHe yarram elinde fişek yokken uçcan he? Ananın amına uçarsın! Uyarı: %count%/%max%"
+  # Oyuncuya ceza mesajı
+  punishment-message: "&4Çok fazla ghost fişek kullandın ve ananı siktiler! Cezalandırıldın orospu çocuğu!"
+  # Cezalandırma komutları
+  punishment-commands:
+    - "title %player% title {\"text\":\"YARRAK GİBİ KALDIN DİMİ?\",\"color\":\"red\",\"bold\":true}"
+    - "title %player% subtitle {\"text\":\"Amına koduğumun hilecisi\",\"color\":\"yellow\"}"

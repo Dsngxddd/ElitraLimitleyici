@@ -3,6 +3,9 @@ package net.cengiz1.elitraLimitleyici.config;
 import net.cengiz1.elitraLimitleyici.ElitraLimitleyici;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ConfigManager {
 
     private final ElitraLimitleyici plugin;
@@ -18,6 +21,15 @@ public class ConfigManager {
     private boolean enablePlayerMessage;
     private String webhookUsername;
     private String webhookAvatarUrl;
+    private boolean preventGhostFireworks;
+    private int maxGhostFireworkWarnings;
+    private long ghostFireworkCooldownMs;
+    private boolean ghostFireworkDisablesElytra;
+    private int ghostFireworkPunishmentDurationTicks;
+    private String ghostFireworkNotificationMessage;
+    private String ghostFireworkPlayerMessage;
+    private String ghostFireworkPunishmentMessage;
+    private List<String> ghostFireworkPunishmentCommands;
 
     public ConfigManager(ElitraLimitleyici plugin) {
         this.plugin = plugin;
@@ -38,6 +50,18 @@ public class ConfigManager {
         config.addDefault("webhook-avatar-url", "");
         config.addDefault("notification-message", "Oyuncu %player% amunu yurdunu siktiğim çok fazla kiritik vurdu he");
         config.addDefault("player-notification-message", "&cÇok fazla kritik vuruş yaptıgın icin %saniye% saniye elitran kapalı");
+        config.addDefault("ghost-firework.prevent-ghost-fireworks", true);
+        config.addDefault("ghost-firework.max-warnings", 3);
+        config.addDefault("ghost-firework.warning-cooldown-ms", 5000);
+        config.addDefault("ghost-firework.disables-elytra", true);
+        config.addDefault("ghost-firework.punishment-duration-ticks", 1200); // 60 seconds
+        config.addDefault("ghost-firework.notification-message", "Oyuncu %player% ghost fisek kullanmaya calisti! (%count%/%max%)");
+        config.addDefault("ghost-firework.player-message", "&cElinde fisek yokken elytra boost yapamazsin! Uyari: %count%/%max%");
+        config.addDefault("ghost-firework.punishment-message", "&4Cok fazla ghost fisek kullandin ve cezalandirildin!");
+        config.addDefault("ghost-firework.punishment-commands", Arrays.asList(
+                "title %player% title {\"text\":\"Ghost Fişek Kullanamazsın!\",\"color\":\"red\",\"bold\":true}",
+                "title %player% subtitle {\"text\":\"Cezalandırıldın\",\"color\":\"yellow\"}"));
+
         config.options().copyDefaults(true);
         plugin.saveConfig();
         maxCriticalHits = config.getInt("max-critical-hits");
@@ -51,6 +75,15 @@ public class ConfigManager {
         playerNotificationMessage = config.getString("player-notification-message");
         webhookUsername = config.getString("webhook-username");
         webhookAvatarUrl = config.getString("webhook-avatar-url");
+        preventGhostFireworks = config.getBoolean("ghost-firework.prevent-ghost-fireworks");
+        maxGhostFireworkWarnings = config.getInt("ghost-firework.max-warnings");
+        ghostFireworkCooldownMs = config.getLong("ghost-firework.warning-cooldown-ms");
+        ghostFireworkDisablesElytra = config.getBoolean("ghost-firework.disables-elytra");
+        ghostFireworkPunishmentDurationTicks = config.getInt("ghost-firework.punishment-duration-ticks");
+        ghostFireworkNotificationMessage = config.getString("ghost-firework.notification-message");
+        ghostFireworkPlayerMessage = config.getString("ghost-firework.player-message");
+        ghostFireworkPunishmentMessage = config.getString("ghost-firework.punishment-message");
+        ghostFireworkPunishmentCommands = config.getStringList("ghost-firework.punishment-commands");
     }
 
     public void reloadConfig() {
@@ -100,5 +133,42 @@ public class ConfigManager {
 
     public String getWebhookAvatarUrl() {
         return webhookAvatarUrl;
+    }
+
+    // Ghost firework getters
+    public boolean isPreventGhostFireworks() {
+        return preventGhostFireworks;
+    }
+
+    public int getMaxGhostFireworkWarnings() {
+        return maxGhostFireworkWarnings;
+    }
+
+    public long getGhostFireworkCooldownMs() {
+        return ghostFireworkCooldownMs;
+    }
+
+    public boolean isGhostFireworkDisablesElytra() {
+        return ghostFireworkDisablesElytra;
+    }
+
+    public int getGhostFireworkPunishmentDurationTicks() {
+        return ghostFireworkPunishmentDurationTicks;
+    }
+
+    public String getGhostFireworkNotificationMessage() {
+        return ghostFireworkNotificationMessage;
+    }
+
+    public String getGhostFireworkPlayerMessage() {
+        return ghostFireworkPlayerMessage;
+    }
+
+    public String getGhostFireworkPunishmentMessage() {
+        return ghostFireworkPunishmentMessage;
+    }
+
+    public List<String> getGhostFireworkPunishmentCommands() {
+        return ghostFireworkPunishmentCommands;
     }
 }

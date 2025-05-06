@@ -1,7 +1,7 @@
 name: ElitraLimitleyici
 version: '1.0-SNAPSHOT'
 main: net.cengiz1.elitraLimitleyici.ElitraLimitleyici
-api-version: '1.21'
+api-version: '1.19'
 permissions:
   elitralimitleyici.bypass:
     description: Bypass perm
